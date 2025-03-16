@@ -1,5 +1,3 @@
-import React from 'react'
+import PageTemplate from './[slug]/page'
 
-export default async function HomePage() {
-  return <div className="text-amber-400">Hello World</div>
-}
+export default PageTemplate

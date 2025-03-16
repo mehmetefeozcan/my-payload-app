@@ -1,4 +1,5 @@
 import { CollectionConfig } from 'payload'
+import { blocks } from '@/blocks'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -17,11 +18,11 @@ export const Pages: CollectionConfig = {
         position: 'sidebar',
       },
     },
-    /* {
+    {
       name: 'layout',
       label: 'Layout',
       type: 'blocks',
-      blocks: [],
-    }, */
+      blocks,
+    },
   ],
 }
