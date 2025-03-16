@@ -1,5 +1,5 @@
 import { Media } from './Media'
-import { Posts } from './Posts'
+import { Pages } from './Pages'
 import { Users } from './Users'
 
-export const collections = [Posts, Media, Users]
+export const collections = [Media, Users, Pages]

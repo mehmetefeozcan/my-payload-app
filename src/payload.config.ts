@@ -9,6 +9,8 @@ import sharp from 'sharp'
 
 import { collections } from './collections'
 import { Users } from './collections/Users'
+import { Footer } from './globals/Footer'
+import { Header } from './globals/Header'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -30,23 +32,7 @@ export default buildConfig({
     url: process.env.DATABASE_URI || '',
   }),
   sharp,
-  globals: [
-    {
-      slug: 'site-settings',
-      fields: [
-        {
-          name: 'siteTitle',
-          type: 'text',
-          required: true,
-        },
-        {
-          name: 'siteDescription',
-          type: 'textarea',
-          required: true,
-        },
-      ],
-    },
-  ],
+  globals: [Header, Footer],
   plugins: [
     payloadCloudPlugin(),
     // storage-adapter-placeholder
