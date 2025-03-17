@@ -8,7 +8,6 @@ export const Header: GlobalConfig = {
       label: 'Logo',
       type: 'upload',
       relationTo: 'media',
-      required: true,
     },
     {
       name: 'nav',
@@ -26,7 +25,48 @@ export const Header: GlobalConfig = {
           type: 'text',
         },
       ],
-      required: true,
+    },
+    {
+      name: 'actions',
+      label: 'Actions',
+      type: 'array',
+      fields: [
+        {
+          name: 'label',
+          label: 'Label',
+          type: 'text',
+        },
+        {
+          name: 'link',
+          label: 'Link',
+          type: 'text',
+        },
+        {
+          name: 'color',
+          label: 'Color',
+          type: 'text',
+        },
+        {
+          name: 'type',
+          label: 'Type',
+          type: 'radio',
+          options: [
+            {
+              label: 'Basic',
+              value: 'basic',
+            },
+            {
+              label: 'Outlined',
+              value: 'outlined',
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'backgroundColor',
+      label: 'Background Color',
+      type: 'text',
     },
   ],
 }

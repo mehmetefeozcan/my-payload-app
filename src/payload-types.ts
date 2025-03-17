@@ -372,12 +372,24 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Header {
   id: string;
-  logo: string | Media;
-  nav: {
-    label?: string | null;
-    link?: string | null;
-    id?: string | null;
-  }[];
+  logo?: (string | null) | Media;
+  nav?:
+    | {
+        label?: string | null;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  actions?:
+    | {
+        label?: string | null;
+        link?: string | null;
+        color?: string | null;
+        type?: ('basic' | 'outlined') | null;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -410,6 +422,16 @@ export interface HeaderSelect<T extends boolean = true> {
         link?: T;
         id?: T;
       };
+  actions?:
+    | T
+    | {
+        label?: T;
+        link?: T;
+        color?: T;
+        type?: T;
+        id?: T;
+      };
+  backgroundColor?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

@@ -13,28 +13,49 @@ export default async function HeaderServer() {
   })
 
   return (
-    <div className="w-full flex flex-row justify-between px-10  items-center bg-stone-200">
-      <div className="relative w-64 h-20">
+    <div
+      className="w-full flex flex-row justify-around  items-center h-24"
+      style={{ backgroundColor: header.backgroundColor ? `#${header.backgroundColor}` : '#fff' }}
+    >
+      <div className="relative w-28 h-7">
         {header.logo ? (
           <Image
             src={(header.logo as any).url}
             alt={(header.logo as any).alt}
             fill
-            className="object-fit"
+            className="object-contain"
           />
         ) : (
-          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-            <span></span>
-          </div>
+          <div></div>
         )}
       </div>
 
-      <div>
+      <div className="flex flex-row gap-6">
         {header.nav?.map((item, index) => {
           return (
-            <Link key={index} href={item.link!}>
+            <Link key={index} href={item.link || '#'} className="text-customText">
               {item.label}
             </Link>
+          )
+        })}
+      </div>
+      <div>
+        {header.actions?.map((item, index) => {
+          return (
+            <button
+              key={index}
+              style={{
+                backgroundColor: item.type == 'basic' ? item.color?.toString() : 'transparent',
+                padding: '4px 16px',
+                color: item.type == 'basic' ? 'white' : item.color?.toString(),
+                borderRadius: '6px',
+                border: '1px solid' + item.color?.toString(),
+              }}
+            >
+              <a href={item.link || '#'} target="_blank">
+                {item.label}
+              </a>
+            </button>
           )
         })}
       </div>

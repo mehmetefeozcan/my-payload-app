@@ -17,3 +17,7 @@ body,
 #app {
   height: 100%;
 }
+
+@theme {
+  --color-customText: #64748b;
+}
