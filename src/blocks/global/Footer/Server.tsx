@@ -15,12 +15,18 @@ export default async function FooterServer() {
   return (
     <div className="w-full flex flex-row justify-between px-10  items-center bg-stone-200 bottom-0">
       <div className="relative w-64 h-20 ">
-        <Image
-          src={(footer.logo! as any).url}
-          alt={(footer.logo! as any).alt}
-          fill
-          className="object-fit"
-        />
+        {footer.logo ? (
+          <Image
+            src={(footer.logo as any).url}
+            alt={(footer.logo as any).alt}
+            fill
+            className="object-fit"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span></span>
+          </div>
+        )}
       </div>
       <div>{footer.copyrightNotice}</div>
       <div>

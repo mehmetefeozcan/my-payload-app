@@ -14,14 +14,21 @@ export default async function HeaderServer() {
 
   return (
     <div className="w-full flex flex-row justify-between px-10  items-center bg-stone-200">
-      <div className="relative w-64 h-20 ">
-        <Image
-          src={(header.logo! as any).url}
-          alt={(header.logo! as any).alt}
-          fill
-          className="object-fit"
-        />
+      <div className="relative w-64 h-20">
+        {header.logo ? (
+          <Image
+            src={(header.logo as any).url}
+            alt={(header.logo as any).alt}
+            fill
+            className="object-fit"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+            <span></span>
+          </div>
+        )}
       </div>
+
       <div>
         {header.nav?.map((item, index) => {
           return (
