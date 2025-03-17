@@ -50,7 +50,7 @@ export default async function Page({ params: { slug = 'index' } }) {
   }
 
   return (
-    <article className="pt-16 pb-24">
+    <article>
       <RenderBlocks blocks={page.layout} />
     </article>
   )

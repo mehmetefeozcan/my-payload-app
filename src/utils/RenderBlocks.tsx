@@ -1,9 +1,13 @@
-import CoverBlockServer from '@/blocks/cover/Server'
-import { Page } from '@/payload-types'
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { Fragment } from 'react'
+import { Page } from '@/payload-types'
+
+import ImageBlockServer from '@/blocks/imageWithText/Server'
+import CoverBlockServer from '@/blocks/cover/Server'
 
 const blockComponents = {
   cover: CoverBlockServer,
+  imageWithText: ImageBlockServer,
 }
 
 export const RenderBlocks: React.FC<{
@@ -20,11 +24,11 @@ export const RenderBlocks: React.FC<{
           const { blockType } = block
 
           if (blockType && blockType in blockComponents) {
-            const Block = blockComponents[blockType]
+            const Block = (blockComponents as any)[blockType]
 
             if (Block) {
               return (
-                <div className="my-16" key={index}>
+                <div key={index}>
                   <Block id={index} {...block} />
                 </div>
               )
