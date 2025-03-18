@@ -1,5 +1,9 @@
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
+import { FixedToolbarFeatureClient as FixedToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
+import { TextLineHeightClientFeature as TextLineHeightClientFeature_003d5c6d9acd473d37bf6b1f238eb8d6 } from 'payload-lexical-typography/client'
+import { TextSizeClientFeature as TextSizeClientFeature_003d5c6d9acd473d37bf6b1f238eb8d6 } from 'payload-lexical-typography/client'
+import { TextColorClientFeature as TextColorClientFeature_003d5c6d9acd473d37bf6b1f238eb8d6 } from 'payload-lexical-typography/client'
 import { InlineToolbarFeatureClient as InlineToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { HorizontalRuleFeatureClient as HorizontalRuleFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { UploadFeatureClient as UploadFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
@@ -24,6 +28,10 @@ import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalField": RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e,
+  "@payloadcms/richtext-lexical/client#FixedToolbarFeatureClient": FixedToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
+  "payload-lexical-typography/client#TextLineHeightClientFeature": TextLineHeightClientFeature_003d5c6d9acd473d37bf6b1f238eb8d6,
+  "payload-lexical-typography/client#TextSizeClientFeature": TextSizeClientFeature_003d5c6d9acd473d37bf6b1f238eb8d6,
+  "payload-lexical-typography/client#TextColorClientFeature": TextColorClientFeature_003d5c6d9acd473d37bf6b1f238eb8d6,
   "@payloadcms/richtext-lexical/client#InlineToolbarFeatureClient": InlineToolbarFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#HorizontalRuleFeatureClient": HorizontalRuleFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@payloadcms/richtext-lexical/client#UploadFeatureClient": UploadFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,

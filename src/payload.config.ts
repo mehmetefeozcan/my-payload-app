@@ -1,11 +1,17 @@
 // storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { lexicalEditor, FixedToolbarFeature } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+
+import {
+  TextColorFeature,
+  TextSizeFeature,
+  TextLineHeightFeature,
+} from 'payload-lexical-typography'
 
 import { collections } from './collections'
 import { Users } from './collections/Users'
@@ -23,7 +29,17 @@ export default buildConfig({
     },
   },
   collections,
-  editor: lexicalEditor(),
+  editor: lexicalEditor({
+    features: ({ defaultFeatures }) => [
+      ...defaultFeatures,
+      TextColorFeature({
+        colors: ['#FFFFFF', '#000000', '#FF0000', '#00FF00', '#0000FF'],
+      }),
+      TextSizeFeature(),
+      TextLineHeightFeature(),
+      FixedToolbarFeature(),
+    ],
+  }),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

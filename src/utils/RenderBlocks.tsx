@@ -2,12 +2,12 @@
 import React, { Fragment } from 'react'
 import { Page } from '@/payload-types'
 
-import ImageBlockServer from '@/blocks/imageWithText/Server'
-import CoverBlockServer from '@/blocks/cover/Server'
+import ImageWithTexBlockComponent from '@/blocks/imageWithText/Component'
+import CoverBlockComponent from '@/blocks/cover/Component'
 
 const blockComponents = {
-  cover: CoverBlockServer,
-  imageWithText: ImageBlockServer,
+  cover: CoverBlockComponent,
+  imageWithText: ImageWithTexBlockComponent,
 }
 
 export const RenderBlocks: React.FC<{

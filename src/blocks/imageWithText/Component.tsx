@@ -1,8 +1,15 @@
-import { RichText } from '@payloadcms/richtext-lexical/react'
+import { JSXConvertersFunction, RichText } from '@payloadcms/richtext-lexical/react'
 import Image from 'next/image'
 import React from 'react'
 
-export default function ImageWithBlockServer({
+import { TypographyJSXConverters } from 'payload-lexical-typography/converters'
+
+const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
+  ...defaultConverters,
+  ...TypographyJSXConverters,
+})
+
+export default function ImageWithTexBlockComponent({
   image,
   size,
   title,
@@ -23,8 +30,8 @@ export default function ImageWithBlockServer({
         <div className="size-10 relative">
           <Image src={icon.url} alt={icon.alt} fill className={`object-fill`} />
         </div>
-        <RichText data={title} />
-        <RichText data={description} className="mt-5" />
+        <RichText data={title} converters={jsxConverters} />
+        <RichText data={description} className="mt-5" converters={jsxConverters} />
         <button
           className={`border py-2 px-4 rounded-md mt-6`}
           style={{ borderColor: buttonColor, color: buttonColor }}
