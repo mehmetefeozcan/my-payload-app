@@ -11,17 +11,26 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
 
 export default function CaptionBlockComponent({ icon, title, description }) {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-fit">
+    <div>
       {icon ? (
-        <div className="size-10 relative">
-          <Image src={icon.url} alt={icon.alt} fill className={`object-fill `} />
+        <div className="flex flex-col items-center justify-center w-full h-fit">
+          {icon ? (
+            <div className="size-10 relative">
+              <Image src={icon.url} alt={icon.alt} fill className={`object-fill `} />
+            </div>
+          ) : (
+            <div></div>
+          )}
+
+          <RichText data={title} converters={jsxConverters} />
+          <RichText data={description} className="mt-5" converters={jsxConverters} />
         </div>
       ) : (
-        <div></div>
+        <div>
+          <RichText data={title} converters={jsxConverters} />
+          <RichText data={description} className="mt-5" converters={jsxConverters} />
+        </div>
       )}
-
-      <RichText data={title} converters={jsxConverters} />
-      <RichText data={description} className="mt-5" converters={jsxConverters} />
     </div>
   )
 }

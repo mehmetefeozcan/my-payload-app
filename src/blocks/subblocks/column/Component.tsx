@@ -2,25 +2,25 @@
 import React from 'react'
 import CardBlockComponent from '../card/Component'
 import CaptionBlockComponent from '../caption/Component'
+import RowBlockComponent from '../row/Component'
 import ImageItemBlockComponent from '../image/Component'
 import IconItemBlockComponent from '../icon/Component'
-import ColumnBlockComponent from '../column/Component'
 
 const blockComponents = {
   card: CardBlockComponent,
   caption: CaptionBlockComponent,
-  column: ColumnBlockComponent,
+  row: RowBlockComponent,
   imageItem: ImageItemBlockComponent,
   iconItem: IconItemBlockComponent,
 }
 
-export default function RowBlockComponent({ items, spacing }) {
+export default function ColumnBlockComponent({ items }) {
   if (!items || !Array.isArray(items) || items.length === 0) {
     return null
   }
 
   return (
-    <div className={`flex flex-row ${spacing}  w-full items-center`}>
+    <div className="flex flex-col justify-start ">
       {items.map((block, index) => {
         const { blockType } = block
 

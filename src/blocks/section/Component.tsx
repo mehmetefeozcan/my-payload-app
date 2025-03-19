@@ -3,11 +3,15 @@ import React from 'react'
 import CaptionBlockComponent from '../subblocks/caption/Component'
 import RowBlockComponent from '../subblocks/row/Component'
 import SlideBlockComponent from '../slide/Component'
+import ImageItemBlockComponent from '../subblocks/image/Component'
+import ColumnBlockComponent from '../subblocks/column/Component'
 
 const blockComponents = {
   caption: CaptionBlockComponent,
   row: RowBlockComponent,
+  column: ColumnBlockComponent,
   slide: SlideBlockComponent,
+  imageItem: ImageItemBlockComponent,
 }
 
 export default function SectionBlockComponent({ backgroundColor, items, size }) {

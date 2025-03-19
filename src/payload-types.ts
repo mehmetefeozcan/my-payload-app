@@ -299,53 +299,334 @@ export interface Page {
                       blockType: 'card';
                     }
                   | {
-                      width: number;
+                      spacing?:
+                        | (
+                            | 'justify-normal'
+                            | 'justify-center'
+                            | 'justify-between'
+                            | 'justify-evenly'
+                            | 'justify-around'
+                          )
+                        | null;
                       items?:
-                        | {
-                            icon?: (string | null) | Media;
-                            title: {
-                              root: {
-                                type: string;
-                                children: {
-                                  type: string;
-                                  version: number;
+                        | (
+                            | {
+                                icon?: (string | null) | Media;
+                                title: {
+                                  root: {
+                                    type: string;
+                                    children: {
+                                      type: string;
+                                      version: number;
+                                      [k: string]: unknown;
+                                    }[];
+                                    direction: ('ltr' | 'rtl') | null;
+                                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                    indent: number;
+                                    version: number;
+                                  };
                                   [k: string]: unknown;
-                                }[];
-                                direction: ('ltr' | 'rtl') | null;
-                                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                                indent: number;
-                                version: number;
-                              };
-                              [k: string]: unknown;
-                            };
-                            description?: {
-                              root: {
-                                type: string;
-                                children: {
-                                  type: string;
-                                  version: number;
+                                };
+                                description?: {
+                                  root: {
+                                    type: string;
+                                    children: {
+                                      type: string;
+                                      version: number;
+                                      [k: string]: unknown;
+                                    }[];
+                                    direction: ('ltr' | 'rtl') | null;
+                                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                    indent: number;
+                                    version: number;
+                                  };
                                   [k: string]: unknown;
-                                }[];
-                                direction: ('ltr' | 'rtl') | null;
-                                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                                indent: number;
-                                version: number;
-                              };
-                              [k: string]: unknown;
-                            } | null;
-                            theme: {
-                              color: string;
-                              height: number;
-                              width: number;
-                            };
-                            id?: string | null;
-                            blockName?: string | null;
-                            blockType: 'card';
-                          }[]
+                                } | null;
+                                theme: {
+                                  color: string;
+                                  height: number;
+                                  width: number;
+                                };
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'card';
+                              }
+                            | {
+                                icon?: (string | null) | Media;
+                                title: {
+                                  root: {
+                                    type: string;
+                                    children: {
+                                      type: string;
+                                      version: number;
+                                      [k: string]: unknown;
+                                    }[];
+                                    direction: ('ltr' | 'rtl') | null;
+                                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                    indent: number;
+                                    version: number;
+                                  };
+                                  [k: string]: unknown;
+                                };
+                                description: {
+                                  root: {
+                                    type: string;
+                                    children: {
+                                      type: string;
+                                      version: number;
+                                      [k: string]: unknown;
+                                    }[];
+                                    direction: ('ltr' | 'rtl') | null;
+                                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                    indent: number;
+                                    version: number;
+                                  };
+                                  [k: string]: unknown;
+                                };
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'caption';
+                              }
+                            | {
+                                image: string | Media;
+                                size: {
+                                  height: number;
+                                  width: number;
+                                };
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'imageItem';
+                              }
+                            | {
+                                icon: string | Media;
+                                size: {
+                                  height: number;
+                                  width: number;
+                                };
+                                text?: string | null;
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'iconItem';
+                              }
+                            | {
+                                items?:
+                                  | (
+                                      | {
+                                          icon?: (string | null) | Media;
+                                          title: {
+                                            root: {
+                                              type: string;
+                                              children: {
+                                                type: string;
+                                                version: number;
+                                                [k: string]: unknown;
+                                              }[];
+                                              direction: ('ltr' | 'rtl') | null;
+                                              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                              indent: number;
+                                              version: number;
+                                            };
+                                            [k: string]: unknown;
+                                          };
+                                          description?: {
+                                            root: {
+                                              type: string;
+                                              children: {
+                                                type: string;
+                                                version: number;
+                                                [k: string]: unknown;
+                                              }[];
+                                              direction: ('ltr' | 'rtl') | null;
+                                              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                              indent: number;
+                                              version: number;
+                                            };
+                                            [k: string]: unknown;
+                                          } | null;
+                                          theme: {
+                                            color: string;
+                                            height: number;
+                                            width: number;
+                                          };
+                                          id?: string | null;
+                                          blockName?: string | null;
+                                          blockType: 'card';
+                                        }
+                                      | {
+                                          icon?: (string | null) | Media;
+                                          title: {
+                                            root: {
+                                              type: string;
+                                              children: {
+                                                type: string;
+                                                version: number;
+                                                [k: string]: unknown;
+                                              }[];
+                                              direction: ('ltr' | 'rtl') | null;
+                                              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                              indent: number;
+                                              version: number;
+                                            };
+                                            [k: string]: unknown;
+                                          };
+                                          description: {
+                                            root: {
+                                              type: string;
+                                              children: {
+                                                type: string;
+                                                version: number;
+                                                [k: string]: unknown;
+                                              }[];
+                                              direction: ('ltr' | 'rtl') | null;
+                                              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                              indent: number;
+                                              version: number;
+                                            };
+                                            [k: string]: unknown;
+                                          };
+                                          id?: string | null;
+                                          blockName?: string | null;
+                                          blockType: 'caption';
+                                        }
+                                      | {
+                                          image: string | Media;
+                                          size: {
+                                            height: number;
+                                            width: number;
+                                          };
+                                          id?: string | null;
+                                          blockName?: string | null;
+                                          blockType: 'imageItem';
+                                        }
+                                      | {
+                                          icon: string | Media;
+                                          size: {
+                                            height: number;
+                                            width: number;
+                                          };
+                                          text?: string | null;
+                                          id?: string | null;
+                                          blockName?: string | null;
+                                          blockType: 'iconItem';
+                                        }
+                                    )[]
+                                  | null;
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'column';
+                              }
+                          )[]
                         | null;
                       id?: string | null;
                       blockName?: string | null;
                       blockType: 'row';
+                    }
+                  | {
+                      items?:
+                        | (
+                            | {
+                                icon?: (string | null) | Media;
+                                title: {
+                                  root: {
+                                    type: string;
+                                    children: {
+                                      type: string;
+                                      version: number;
+                                      [k: string]: unknown;
+                                    }[];
+                                    direction: ('ltr' | 'rtl') | null;
+                                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                    indent: number;
+                                    version: number;
+                                  };
+                                  [k: string]: unknown;
+                                };
+                                description?: {
+                                  root: {
+                                    type: string;
+                                    children: {
+                                      type: string;
+                                      version: number;
+                                      [k: string]: unknown;
+                                    }[];
+                                    direction: ('ltr' | 'rtl') | null;
+                                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                    indent: number;
+                                    version: number;
+                                  };
+                                  [k: string]: unknown;
+                                } | null;
+                                theme: {
+                                  color: string;
+                                  height: number;
+                                  width: number;
+                                };
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'card';
+                              }
+                            | {
+                                icon?: (string | null) | Media;
+                                title: {
+                                  root: {
+                                    type: string;
+                                    children: {
+                                      type: string;
+                                      version: number;
+                                      [k: string]: unknown;
+                                    }[];
+                                    direction: ('ltr' | 'rtl') | null;
+                                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                    indent: number;
+                                    version: number;
+                                  };
+                                  [k: string]: unknown;
+                                };
+                                description: {
+                                  root: {
+                                    type: string;
+                                    children: {
+                                      type: string;
+                                      version: number;
+                                      [k: string]: unknown;
+                                    }[];
+                                    direction: ('ltr' | 'rtl') | null;
+                                    format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                    indent: number;
+                                    version: number;
+                                  };
+                                  [k: string]: unknown;
+                                };
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'caption';
+                              }
+                            | {
+                                image: string | Media;
+                                size: {
+                                  height: number;
+                                  width: number;
+                                };
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'imageItem';
+                              }
+                            | {
+                                icon: string | Media;
+                                size: {
+                                  height: number;
+                                  width: number;
+                                };
+                                text?: string | null;
+                                id?: string | null;
+                                blockName?: string | null;
+                                blockType: 'iconItem';
+                              }
+                          )[]
+                        | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'column';
                     }
                   | {
                       items?:
@@ -395,6 +676,16 @@ export interface Page {
                       id?: string | null;
                       blockName?: string | null;
                       blockType: 'slide';
+                    }
+                  | {
+                      image: string | Media;
+                      size: {
+                        height: number;
+                        width: number;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'imageItem';
                     }
                 )[]
               | null;
@@ -576,7 +867,7 @@ export interface PagesSelect<T extends boolean = true> {
                     row?:
                       | T
                       | {
-                          width?: T;
+                          spacing?: T;
                           items?:
                             | T
                             | {
@@ -593,6 +884,166 @@ export interface PagesSelect<T extends boolean = true> {
                                             height?: T;
                                             width?: T;
                                           };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                caption?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      title?: T;
+                                      description?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                imageItem?:
+                                  | T
+                                  | {
+                                      image?: T;
+                                      size?:
+                                        | T
+                                        | {
+                                            height?: T;
+                                            width?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                iconItem?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      size?:
+                                        | T
+                                        | {
+                                            height?: T;
+                                            width?: T;
+                                          };
+                                      text?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                column?:
+                                  | T
+                                  | {
+                                      items?:
+                                        | T
+                                        | {
+                                            card?:
+                                              | T
+                                              | {
+                                                  icon?: T;
+                                                  title?: T;
+                                                  description?: T;
+                                                  theme?:
+                                                    | T
+                                                    | {
+                                                        color?: T;
+                                                        height?: T;
+                                                        width?: T;
+                                                      };
+                                                  id?: T;
+                                                  blockName?: T;
+                                                };
+                                            caption?:
+                                              | T
+                                              | {
+                                                  icon?: T;
+                                                  title?: T;
+                                                  description?: T;
+                                                  id?: T;
+                                                  blockName?: T;
+                                                };
+                                            imageItem?:
+                                              | T
+                                              | {
+                                                  image?: T;
+                                                  size?:
+                                                    | T
+                                                    | {
+                                                        height?: T;
+                                                        width?: T;
+                                                      };
+                                                  id?: T;
+                                                  blockName?: T;
+                                                };
+                                            iconItem?:
+                                              | T
+                                              | {
+                                                  icon?: T;
+                                                  size?:
+                                                    | T
+                                                    | {
+                                                        height?: T;
+                                                        width?: T;
+                                                      };
+                                                  text?: T;
+                                                  id?: T;
+                                                  blockName?: T;
+                                                };
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    column?:
+                      | T
+                      | {
+                          items?:
+                            | T
+                            | {
+                                card?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      title?: T;
+                                      description?: T;
+                                      theme?:
+                                        | T
+                                        | {
+                                            color?: T;
+                                            height?: T;
+                                            width?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                caption?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      title?: T;
+                                      description?: T;
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                imageItem?:
+                                  | T
+                                  | {
+                                      image?: T;
+                                      size?:
+                                        | T
+                                        | {
+                                            height?: T;
+                                            width?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                                iconItem?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      size?:
+                                        | T
+                                        | {
+                                            height?: T;
+                                            width?: T;
+                                          };
+                                      text?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -623,6 +1074,19 @@ export interface PagesSelect<T extends boolean = true> {
                                       id?: T;
                                       blockName?: T;
                                     };
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    imageItem?:
+                      | T
+                      | {
+                          image?: T;
+                          size?:
+                            | T
+                            | {
+                                height?: T;
+                                width?: T;
                               };
                           id?: T;
                           blockName?: T;

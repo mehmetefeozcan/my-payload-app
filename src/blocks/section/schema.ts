@@ -3,6 +3,8 @@ import { Caption } from '../subblocks/caption/schema'
 import { Card } from '../subblocks/card/schema'
 import { Row } from '../subblocks/row/schema'
 import { Slide } from '../slide/schema'
+import { ImageItem } from '../subblocks/image/schema'
+import { Column } from '../subblocks/column/schema'
 
 export const Section: Block = {
   slug: 'section',
@@ -53,7 +55,7 @@ export const Section: Block = {
       name: 'items',
       label: 'Items',
       type: 'blocks',
-      blocks: [Caption, Card, Row, Slide],
+      blocks: [Caption, Card, Row, Column, Slide, ImageItem],
     },
   ],
 }
