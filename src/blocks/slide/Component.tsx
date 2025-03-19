@@ -13,7 +13,7 @@ export default function SlideBlockComponent({ items }) {
   }
 
   return (
-    <div className="w-full flex justify-center items-center px-56">
+    <div className="w-full flex justify-center items-center">
       <Carousel>
         {items.map((block, index) => {
           const { blockType } = block

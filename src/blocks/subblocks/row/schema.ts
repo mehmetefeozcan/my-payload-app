@@ -6,7 +6,7 @@ export const Row: Block = {
   fields: [
     {
       name: 'width',
-      label: 'Width',
+      label: 'Width (%)',
       type: 'number',
       min: 1,
       max: 100,

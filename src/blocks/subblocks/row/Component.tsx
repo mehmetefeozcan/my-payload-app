@@ -13,7 +13,7 @@ export default function RowBlockComponent({ items, width }) {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <div style={{ width: width + 'vw' }} className="flex flex-row gap-5  justify-center">
+      <div style={{ width: width + 'vw' }} className="flex flex-row justify-between">
         {items.map((block, index) => {
           const { blockType } = block
 
