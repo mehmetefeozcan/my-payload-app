@@ -1,10 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import CaptionBlockComponent from '../subblocks/caption/Component'
 import RowBlockComponent from '../subblocks/row/Component'
+import SlideBlockComponent from '../slide/Component'
 
 const blockComponents = {
   caption: CaptionBlockComponent,
   row: RowBlockComponent,
+  slide: SlideBlockComponent,
 }
 
 export default function SectionBlockComponent({ backgroundColor, items, size }) {

@@ -347,6 +347,55 @@ export interface Page {
                       blockName?: string | null;
                       blockType: 'row';
                     }
+                  | {
+                      items?:
+                        | {
+                            image: string | Media;
+                            title: {
+                              root: {
+                                type: string;
+                                children: {
+                                  type: string;
+                                  version: number;
+                                  [k: string]: unknown;
+                                }[];
+                                direction: ('ltr' | 'rtl') | null;
+                                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                indent: number;
+                                version: number;
+                              };
+                              [k: string]: unknown;
+                            };
+                            description: {
+                              root: {
+                                type: string;
+                                children: {
+                                  type: string;
+                                  version: number;
+                                  [k: string]: unknown;
+                                }[];
+                                direction: ('ltr' | 'rtl') | null;
+                                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                indent: number;
+                                version: number;
+                              };
+                              [k: string]: unknown;
+                            };
+                            button: {
+                              text: string;
+                              url: string;
+                              color: string;
+                              icon?: (string | null) | Media;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'slideCard';
+                          }[]
+                        | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'slide';
+                    }
                 )[]
               | null;
             id?: string | null;
@@ -543,6 +592,33 @@ export interface PagesSelect<T extends boolean = true> {
                                             color?: T;
                                             height?: T;
                                             width?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    slide?:
+                      | T
+                      | {
+                          items?:
+                            | T
+                            | {
+                                slideCard?:
+                                  | T
+                                  | {
+                                      image?: T;
+                                      title?: T;
+                                      description?: T;
+                                      button?:
+                                        | T
+                                        | {
+                                            text?: T;
+                                            url?: T;
+                                            color?: T;
+                                            icon?: T;
                                           };
                                       id?: T;
                                       blockName?: T;

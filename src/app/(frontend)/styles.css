@@ -20,4 +20,6 @@ body,
 
 @theme {
   --color-customText: #64748b;
+  --color-darkBlue: #153d8b;
+  --color-grayMiddle: #a2b1c6;
 }
