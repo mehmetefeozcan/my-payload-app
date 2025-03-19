@@ -1,8 +1,10 @@
 import React from 'react'
 import CaptionBlockComponent from '../subblocks/caption/Component'
+import RowBlockComponent from '../subblocks/row/Component'
 
 const blockComponents = {
   caption: CaptionBlockComponent,
+  row: RowBlockComponent,
 }
 
 export default function SectionBlockComponent({ backgroundColor, items, size }) {
@@ -12,7 +14,7 @@ export default function SectionBlockComponent({ backgroundColor, items, size }) 
 
   return (
     <div
-      className="w-full min-h-full flex flex-col  py-10" // min-h ve py eklenerek bg görünür yapıldı
+      className="w-full min-h-full flex flex-col  py-10"
       style={{ width: size.width + 'vw', height: size.height + 'vh', backgroundColor }}
     >
       {items.map((block, index) => {
@@ -28,17 +30,6 @@ export default function SectionBlockComponent({ backgroundColor, items, size }) 
               </div>
             )
           }
-        }
-
-        // İç içe section desteği
-        if (blockType === 'section') {
-          return (
-            <SectionBlockComponent
-              key={index}
-              backgroundColor={block.backgroundColor || 'transparent'}
-              items={block.items}
-            />
-          )
         }
 
         return null

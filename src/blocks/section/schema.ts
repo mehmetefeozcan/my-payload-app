@@ -1,5 +1,7 @@
 import { Block } from 'payload'
 import { Caption } from '../subblocks/caption/schema'
+import { Card } from '../subblocks/card/schema'
+import { Row } from '../subblocks/row/schema'
 
 export const Section: Block = {
   slug: 'section',
@@ -29,7 +31,7 @@ export const Section: Block = {
           fields: [
             {
               name: 'height',
-              label: 'Height',
+              label: 'Height (%)',
               type: 'number',
               min: 1,
               max: 100,
@@ -37,7 +39,7 @@ export const Section: Block = {
             },
             {
               name: 'width',
-              label: 'Width',
+              label: 'Width (%)',
               type: 'number',
               min: 1,
               max: 100,
@@ -51,7 +53,7 @@ export const Section: Block = {
       name: 'items',
       label: 'Items',
       type: 'blocks',
-      blocks: [Caption],
+      blocks: [Caption, Card, Row],
     },
   ],
 }

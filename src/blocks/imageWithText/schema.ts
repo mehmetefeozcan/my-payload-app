@@ -14,7 +14,7 @@ export const ImageWithText: Block = {
           fields: [
             {
               name: 'height',
-              label: 'Height',
+              label: 'Height (%)',
               type: 'number',
               min: 1,
               max: 100,
@@ -22,7 +22,7 @@ export const ImageWithText: Block = {
             },
             {
               name: 'width',
-              label: 'Width',
+              label: 'Width (%)',
               type: 'number',
               min: 1,
               max: 100,

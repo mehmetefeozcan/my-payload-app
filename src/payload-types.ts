@@ -220,42 +220,134 @@ export interface Page {
               width: number;
             };
             items?:
-              | {
-                  icon?: (string | null) | Media;
-                  title: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
+              | (
+                  | {
+                      icon?: (string | null) | Media;
+                      title: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
                         [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  };
-                  description: {
-                    root: {
-                      type: string;
-                      children: {
-                        type: string;
-                        version: number;
+                      };
+                      description: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
                         [k: string]: unknown;
-                      }[];
-                      direction: ('ltr' | 'rtl') | null;
-                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                      indent: number;
-                      version: number;
-                    };
-                    [k: string]: unknown;
-                  };
-                  id?: string | null;
-                  blockName?: string | null;
-                  blockType: 'caption';
-                }[]
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'caption';
+                    }
+                  | {
+                      icon?: (string | null) | Media;
+                      title: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      };
+                      description?: {
+                        root: {
+                          type: string;
+                          children: {
+                            type: string;
+                            version: number;
+                            [k: string]: unknown;
+                          }[];
+                          direction: ('ltr' | 'rtl') | null;
+                          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                          indent: number;
+                          version: number;
+                        };
+                        [k: string]: unknown;
+                      } | null;
+                      theme: {
+                        color: string;
+                        height: number;
+                        width: number;
+                      };
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'card';
+                    }
+                  | {
+                      width: number;
+                      items?:
+                        | {
+                            icon?: (string | null) | Media;
+                            title: {
+                              root: {
+                                type: string;
+                                children: {
+                                  type: string;
+                                  version: number;
+                                  [k: string]: unknown;
+                                }[];
+                                direction: ('ltr' | 'rtl') | null;
+                                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                indent: number;
+                                version: number;
+                              };
+                              [k: string]: unknown;
+                            };
+                            description?: {
+                              root: {
+                                type: string;
+                                children: {
+                                  type: string;
+                                  version: number;
+                                  [k: string]: unknown;
+                                }[];
+                                direction: ('ltr' | 'rtl') | null;
+                                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                                indent: number;
+                                version: number;
+                              };
+                              [k: string]: unknown;
+                            } | null;
+                            theme: {
+                              color: string;
+                              height: number;
+                              width: number;
+                            };
+                            id?: string | null;
+                            blockName?: string | null;
+                            blockType: 'card';
+                          }[]
+                        | null;
+                      id?: string | null;
+                      blockName?: string | null;
+                      blockType: 'row';
+                    }
+                )[]
               | null;
             id?: string | null;
             blockName?: string | null;
@@ -413,6 +505,49 @@ export interface PagesSelect<T extends boolean = true> {
                           icon?: T;
                           title?: T;
                           description?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    card?:
+                      | T
+                      | {
+                          icon?: T;
+                          title?: T;
+                          description?: T;
+                          theme?:
+                            | T
+                            | {
+                                color?: T;
+                                height?: T;
+                                width?: T;
+                              };
+                          id?: T;
+                          blockName?: T;
+                        };
+                    row?:
+                      | T
+                      | {
+                          width?: T;
+                          items?:
+                            | T
+                            | {
+                                card?:
+                                  | T
+                                  | {
+                                      icon?: T;
+                                      title?: T;
+                                      description?: T;
+                                      theme?:
+                                        | T
+                                        | {
+                                            color?: T;
+                                            height?: T;
+                                            width?: T;
+                                          };
+                                      id?: T;
+                                      blockName?: T;
+                                    };
+                              };
                           id?: T;
                           blockName?: T;
                         };

@@ -9,11 +9,18 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
   ...TypographyJSXConverters,
 })
 
-export default function CaptionBlockComponent({ icon, title, description }) {
+export default function CardBlockComponent({ icon, title, description, theme }) {
   return (
-    <div className="flex flex-col items-center justify-center w-full h-fit">
+    <div
+      className=" flex flex-col items-center justify-center w-full h-fit rounded-md"
+      style={{
+        width: theme.width + 'px',
+        height: theme.height + 'px',
+        backgroundColor: theme.color,
+      }}
+    >
       {icon ? (
-        <div className="size-10 relative">
+        <div className="size-10 relative mb-6">
           <Image src={icon.url} alt={icon.alt} fill className={`object-fill `} />
         </div>
       ) : (
