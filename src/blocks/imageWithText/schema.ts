@@ -41,11 +41,40 @@ export const ImageWithText: Block = {
     },
     { name: 'description', label: 'Description', type: 'richText', required: true },
     {
-      type: 'row',
+      name: 'button',
+      label: 'Button',
+      type: 'group',
       fields: [
-        { name: 'buttonTitle', label: 'Button Title', type: 'text', required: true },
-        { name: 'buttonUrl', label: 'Button Url', type: 'text', required: true },
-        { name: 'buttonColor', label: 'Button Color', type: 'text', required: true },
+        {
+          type: 'row',
+          fields: [
+            { name: 'title', label: 'Button Title', type: 'text', required: true },
+            { name: 'url', label: 'Button Url', type: 'text', required: true },
+            {
+              name: 'color',
+              label: 'Button Color',
+              type: 'text',
+              required: true,
+              hooks: {
+                beforeChange: [
+                  ({ value }) => {
+                    if (typeof value === 'string' && !value.startsWith('#')) {
+                      return `#${value}`
+                    }
+                    return value
+                  },
+                ],
+              },
+            },
+          ],
+        },
+        {
+          name: 'icon',
+          label: 'Button Icon',
+          type: 'upload',
+          relationTo: 'media',
+          required: false,
+        },
       ],
     },
   ],

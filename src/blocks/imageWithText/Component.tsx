@@ -15,9 +15,7 @@ export default function ImageWithTexBlockComponent({
   title,
   icon,
   description,
-  buttonTitle,
-  buttonUrl,
-  buttonColor,
+  button,
 }) {
   return (
     <div className="relative" style={{ width: size.width + 'vw', height: size.height + 'vh' }}>
@@ -33,12 +31,17 @@ export default function ImageWithTexBlockComponent({
         <RichText data={title} converters={jsxConverters} />
         <RichText data={description} className="mt-5" converters={jsxConverters} />
         <button
-          className={`border py-2 px-4 rounded-md mt-6`}
-          style={{ borderColor: buttonColor, color: buttonColor }}
+          className={`border py-2 px-4 rounded-md mt-6 flex flex-row justify-between gap-2 items-center`}
+          style={{ borderColor: button.color, color: button.color }}
         >
-          <a href={buttonUrl} target="_blank">
-            {buttonTitle}
+          <a href={button.url} target="_blank" className="text-lg  ">
+            {button.title}
           </a>
+          {image ? (
+            <Image src={button.icon.url} alt={button.icon.alt} width={20} height={20} />
+          ) : (
+            <div></div>
+          )}
         </button>
       </div>
     </div>

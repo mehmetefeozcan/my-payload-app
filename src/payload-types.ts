@@ -230,9 +230,12 @@ export interface Page {
               };
               [k: string]: unknown;
             };
-            buttonTitle: string;
-            buttonUrl: string;
-            buttonColor: string;
+            button: {
+              title: string;
+              url: string;
+              color: string;
+              icon?: (string | null) | Media;
+            };
             id?: string | null;
             blockName?: string | null;
             blockType: 'imageWithText';
@@ -374,9 +377,14 @@ export interface PagesSelect<T extends boolean = true> {
               icon?: T;
               title?: T;
               description?: T;
-              buttonTitle?: T;
-              buttonUrl?: T;
-              buttonColor?: T;
+              button?:
+                | T
+                | {
+                    title?: T;
+                    url?: T;
+                    color?: T;
+                    icon?: T;
+                  };
               id?: T;
               blockName?: T;
             };
