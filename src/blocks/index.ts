@@ -1,5 +1,4 @@
-import { Cover } from './cover/schema'
 import { ImageWithText } from './imageWithText/schema'
-import { RichText } from './richText/schema'
+import { Section } from './section/schema'
 
-export const blocks = [Cover, RichText, ImageWithText]
+export const blocks = [ImageWithText, Section]

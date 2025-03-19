@@ -9,7 +9,7 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
   ...TypographyJSXConverters,
 })
 
-export default function ImageWithTexBlockComponent({
+export default function ImageWithTextBlockComponent({
   image,
   size,
   title,
@@ -26,7 +26,11 @@ export default function ImageWithTexBlockComponent({
       )}
       <div className="absolute flex flex-col items-center justify-center w-full h-full">
         <div className="size-10 relative">
-          <Image src={icon.url} alt={icon.alt} fill className={`object-fill`} />
+          {icon ? (
+            <Image src={icon.url} alt={icon.alt} fill className={`object-fill`} />
+          ) : (
+            <div></div>
+          )}
         </div>
         <RichText data={title} converters={jsxConverters} />
         <RichText data={description} className="mt-5" converters={jsxConverters} />
@@ -37,7 +41,7 @@ export default function ImageWithTexBlockComponent({
           <a href={button.url} target="_blank" className="text-lg  ">
             {button.title}
           </a>
-          {image ? (
+          {button.icon ? (
             <Image src={button.icon.url} alt={button.icon.alt} width={20} height={20} />
           ) : (
             <div></div>

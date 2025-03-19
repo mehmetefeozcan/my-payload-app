@@ -167,33 +167,6 @@ export interface Page {
   layout?:
     | (
         | {
-            title: string;
-            subtitle: string;
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'cover';
-          }
-        | {
-            content: {
-              root: {
-                type: string;
-                children: {
-                  type: string;
-                  version: number;
-                  [k: string]: unknown;
-                }[];
-                direction: ('ltr' | 'rtl') | null;
-                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-                indent: number;
-                version: number;
-              };
-              [k: string]: unknown;
-            };
-            id?: string | null;
-            blockName?: string | null;
-            blockType: 'richText';
-          }
-        | {
             image: string | Media;
             size: {
               height: number;
@@ -239,6 +212,54 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'imageWithText';
+          }
+        | {
+            backgroundColor?: string | null;
+            size: {
+              height: number;
+              width: number;
+            };
+            items?:
+              | {
+                  icon?: (string | null) | Media;
+                  title: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  description: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  id?: string | null;
+                  blockName?: string | null;
+                  blockType: 'caption';
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'section';
           }
       )[]
     | null;
@@ -349,21 +370,6 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        cover?:
-          | T
-          | {
-              title?: T;
-              subtitle?: T;
-              id?: T;
-              blockName?: T;
-            };
-        richText?:
-          | T
-          | {
-              content?: T;
-              id?: T;
-              blockName?: T;
-            };
         imageWithText?:
           | T
           | {
@@ -384,6 +390,32 @@ export interface PagesSelect<T extends boolean = true> {
                     url?: T;
                     color?: T;
                     icon?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        section?:
+          | T
+          | {
+              backgroundColor?: T;
+              size?:
+                | T
+                | {
+                    height?: T;
+                    width?: T;
+                  };
+              items?:
+                | T
+                | {
+                    caption?:
+                      | T
+                      | {
+                          icon?: T;
+                          title?: T;
+                          description?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
                   };
               id?: T;
               blockName?: T;
