@@ -10,9 +10,9 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
 
 export default function SlideCardBlockComponent({ image, title, description }) {
   return (
-    <div className="bg-white p-16 flex flex-row items-center justify-center rounded-md gap-40 w-full">
+    <div className="bg-white p-16 flex flex-row items-center justify-center rounded-md gap-52 w-full">
       {image ? (
-        <div className="relative mb-6 size-52">
+        <div className="relative mb-6 size-60">
           <Image src={image.url} alt={image.alt} fill className={`object-fill `} />
         </div>
       ) : (
