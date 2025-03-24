@@ -14,7 +14,7 @@ const blockComponents = {
   imageItem: ImageItemBlockComponent,
 }
 
-export default function SectionBlockComponent({ backgroundColor, items, size }) {
+export default function SectionBlockComponent({ backgroundColor, items, size, spacing }) {
   if (!items || !Array.isArray(items) || items.length === 0) {
     return null
   }
@@ -22,7 +22,12 @@ export default function SectionBlockComponent({ backgroundColor, items, size }) 
   return (
     <div
       className="w-full min-h-full flex flex-col  py-10  px-32"
-      style={{ width: size.width + 'vw', height: size.height + 'vh', backgroundColor }}
+      style={{
+        width: size.width + 'vw',
+        height: size.height + 'vh',
+        backgroundColor,
+        gap: spacing + 'px',
+      }}
     >
       {items.map((block, index) => {
         const { blockType } = block
@@ -32,7 +37,7 @@ export default function SectionBlockComponent({ backgroundColor, items, size }) 
 
           if (Block) {
             return (
-              <div key={index} className="mb-4">
+              <div key={index}>
                 <Block id={index} {...block} />
               </div>
             )

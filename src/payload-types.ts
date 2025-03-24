@@ -219,6 +219,7 @@ export interface Page {
               height: number;
               width: number;
             };
+            spacing?: number | null;
             items?:
               | (
                   | {
@@ -253,6 +254,7 @@ export interface Page {
                         };
                         [k: string]: unknown;
                       };
+                      spacing?: number | null;
                       id?: string | null;
                       blockName?: string | null;
                       blockType: 'caption';
@@ -395,6 +397,7 @@ export interface Page {
                                   };
                                   [k: string]: unknown;
                                 };
+                                spacing?: number | null;
                                 id?: string | null;
                                 blockName?: string | null;
                                 blockType: 'caption';
@@ -421,6 +424,15 @@ export interface Page {
                                 blockType: 'iconItem';
                               }
                             | {
+                                spacing?:
+                                  | (
+                                      | 'justify-normal'
+                                      | 'justify-center'
+                                      | 'justify-between'
+                                      | 'justify-evenly'
+                                      | 'justify-around'
+                                    )
+                                  | null;
                                 items?:
                                   | (
                                       | {
@@ -502,6 +514,7 @@ export interface Page {
                                             };
                                             [k: string]: unknown;
                                           };
+                                          spacing?: number | null;
                                           id?: string | null;
                                           blockName?: string | null;
                                           blockType: 'caption';
@@ -540,6 +553,15 @@ export interface Page {
                       blockType: 'row';
                     }
                   | {
+                      spacing?:
+                        | (
+                            | 'justify-normal'
+                            | 'justify-center'
+                            | 'justify-between'
+                            | 'justify-evenly'
+                            | 'justify-around'
+                          )
+                        | null;
                       items?:
                         | (
                             | {
@@ -621,6 +643,7 @@ export interface Page {
                                   };
                                   [k: string]: unknown;
                                 };
+                                spacing?: number | null;
                                 id?: string | null;
                                 blockName?: string | null;
                                 blockType: 'caption';
@@ -860,6 +883,7 @@ export interface PagesSelect<T extends boolean = true> {
                     height?: T;
                     width?: T;
                   };
+              spacing?: T;
               items?:
                 | T
                 | {
@@ -869,6 +893,7 @@ export interface PagesSelect<T extends boolean = true> {
                           icon?: T;
                           title?: T;
                           description?: T;
+                          spacing?: T;
                           id?: T;
                           blockName?: T;
                         };
@@ -933,6 +958,7 @@ export interface PagesSelect<T extends boolean = true> {
                                       icon?: T;
                                       title?: T;
                                       description?: T;
+                                      spacing?: T;
                                       id?: T;
                                       blockName?: T;
                                     };
@@ -966,6 +992,7 @@ export interface PagesSelect<T extends boolean = true> {
                                 column?:
                                   | T
                                   | {
+                                      spacing?: T;
                                       items?:
                                         | T
                                         | {
@@ -999,6 +1026,7 @@ export interface PagesSelect<T extends boolean = true> {
                                                   icon?: T;
                                                   title?: T;
                                                   description?: T;
+                                                  spacing?: T;
                                                   id?: T;
                                                   blockName?: T;
                                                 };
@@ -1040,6 +1068,7 @@ export interface PagesSelect<T extends boolean = true> {
                     column?:
                       | T
                       | {
+                          spacing?: T;
                           items?:
                             | T
                             | {
@@ -1073,6 +1102,7 @@ export interface PagesSelect<T extends boolean = true> {
                                       icon?: T;
                                       title?: T;
                                       description?: T;
+                                      spacing?: T;
                                       id?: T;
                                       blockName?: T;
                                     };

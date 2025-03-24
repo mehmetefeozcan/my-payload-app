@@ -11,5 +11,6 @@ export const Caption: Block = {
       required: true,
     },
     { name: 'description', label: 'Description', type: 'richText', required: true },
+    { name: 'spacing', label: 'Spacing (px)', type: 'number', defaultValue: 10, min: 0 },
   ],
 }

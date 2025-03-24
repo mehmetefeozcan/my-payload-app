@@ -9,11 +9,11 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
   ...TypographyJSXConverters,
 })
 
-export default function CaptionBlockComponent({ icon, title, description }) {
+export default function CaptionBlockComponent({ icon, title, description, spacing }) {
   return (
     <div>
       {icon ? (
-        <div className="flex flex-col items-center justify-center w-full h-fit">
+        <div className="flex flex-col items-center w-full" style={{ gap: spacing + 'px' }}>
           {icon ? (
             <div className="size-10 relative">
               <Image src={icon.url} alt={icon.alt} fill className={`object-fill `} />
@@ -23,12 +23,12 @@ export default function CaptionBlockComponent({ icon, title, description }) {
           )}
 
           <RichText data={title} converters={jsxConverters} />
-          <RichText data={description} className="mt-5" converters={jsxConverters} />
+          <RichText data={description} converters={jsxConverters} />
         </div>
       ) : (
-        <div>
+        <div className="flex flex-col" style={{ gap: spacing + 'px' }}>
           <RichText data={title} converters={jsxConverters} />
-          <RichText data={description} className="mt-5" converters={jsxConverters} />
+          <RichText data={description} converters={jsxConverters} />
         </div>
       )}
     </div>

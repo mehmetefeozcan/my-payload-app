@@ -14,13 +14,13 @@ const blockComponents = {
   iconItem: IconItemBlockComponent,
 }
 
-export default function ColumnBlockComponent({ items }) {
+export default function ColumnBlockComponent({ items, spacing }) {
   if (!items || !Array.isArray(items) || items.length === 0) {
     return null
   }
 
   return (
-    <div className="flex flex-col justify-start ">
+    <div className={`flex flex-col ${spacing} h-full `}>
       {items.map((block, index) => {
         const { blockType } = block
 

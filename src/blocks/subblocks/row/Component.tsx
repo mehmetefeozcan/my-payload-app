@@ -20,7 +20,7 @@ export default function RowBlockComponent({ items, spacing }) {
   }
 
   return (
-    <div className={`flex flex-row ${spacing}  w-full items-center`}>
+    <div className={`flex flex-row ${spacing}  w-full h-full items-center`}>
       {items.map((block, index) => {
         const { blockType } = block
 
@@ -29,7 +29,7 @@ export default function RowBlockComponent({ items, spacing }) {
 
           if (Block) {
             return (
-              <div key={index} className="">
+              <div key={index} className="h-full">
                 <Block id={index} {...block} />
               </div>
             )

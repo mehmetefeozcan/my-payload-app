@@ -51,6 +51,7 @@ export const Section: Block = {
         },
       ],
     },
+    { name: 'spacing', label: 'Spacing (px)', type: 'number', defaultValue: 16, min: 0 },
     {
       name: 'items',
       label: 'Items',
