@@ -10,8 +10,6 @@ const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
 })
 
 export default function CardBlockComponent({ icon, title, description, theme }) {
-  console.log(theme.border)
-
   return (
     <div
       className="w-full h-fit rounded-md p-[1px]"
