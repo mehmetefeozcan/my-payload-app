@@ -293,6 +293,12 @@ export interface Page {
                         color: string;
                         height: number;
                         width: number;
+                        border?: {
+                          showBorder?: ('false' | 'true') | null;
+                          colorType?: ('single' | 'gradient') | null;
+                          color?: string | null;
+                          colorSecond?: string | null;
+                        };
                       };
                       id?: string | null;
                       blockName?: string | null;
@@ -346,6 +352,12 @@ export interface Page {
                                   color: string;
                                   height: number;
                                   width: number;
+                                  border?: {
+                                    showBorder?: ('false' | 'true') | null;
+                                    colorType?: ('single' | 'gradient') | null;
+                                    color?: string | null;
+                                    colorSecond?: string | null;
+                                  };
                                 };
                                 id?: string | null;
                                 blockName?: string | null;
@@ -447,6 +459,12 @@ export interface Page {
                                             color: string;
                                             height: number;
                                             width: number;
+                                            border?: {
+                                              showBorder?: ('false' | 'true') | null;
+                                              colorType?: ('single' | 'gradient') | null;
+                                              color?: string | null;
+                                              colorSecond?: string | null;
+                                            };
                                           };
                                           id?: string | null;
                                           blockName?: string | null;
@@ -560,6 +578,12 @@ export interface Page {
                                   color: string;
                                   height: number;
                                   width: number;
+                                  border?: {
+                                    showBorder?: ('false' | 'true') | null;
+                                    colorType?: ('single' | 'gradient') | null;
+                                    color?: string | null;
+                                    colorSecond?: string | null;
+                                  };
                                 };
                                 id?: string | null;
                                 blockName?: string | null;
@@ -860,6 +884,14 @@ export interface PagesSelect<T extends boolean = true> {
                                 color?: T;
                                 height?: T;
                                 width?: T;
+                                border?:
+                                  | T
+                                  | {
+                                      showBorder?: T;
+                                      colorType?: T;
+                                      color?: T;
+                                      colorSecond?: T;
+                                    };
                               };
                           id?: T;
                           blockName?: T;
@@ -883,6 +915,14 @@ export interface PagesSelect<T extends boolean = true> {
                                             color?: T;
                                             height?: T;
                                             width?: T;
+                                            border?:
+                                              | T
+                                              | {
+                                                  showBorder?: T;
+                                                  colorType?: T;
+                                                  color?: T;
+                                                  colorSecond?: T;
+                                                };
                                           };
                                       id?: T;
                                       blockName?: T;
@@ -941,6 +981,14 @@ export interface PagesSelect<T extends boolean = true> {
                                                         color?: T;
                                                         height?: T;
                                                         width?: T;
+                                                        border?:
+                                                          | T
+                                                          | {
+                                                              showBorder?: T;
+                                                              colorType?: T;
+                                                              color?: T;
+                                                              colorSecond?: T;
+                                                            };
                                                       };
                                                   id?: T;
                                                   blockName?: T;
@@ -1007,6 +1055,14 @@ export interface PagesSelect<T extends boolean = true> {
                                             color?: T;
                                             height?: T;
                                             width?: T;
+                                            border?:
+                                              | T
+                                              | {
+                                                  showBorder?: T;
+                                                  colorType?: T;
+                                                  color?: T;
+                                                  colorSecond?: T;
+                                                };
                                           };
                                       id?: T;
                                       blockName?: T;

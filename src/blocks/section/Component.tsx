@@ -21,7 +21,7 @@ export default function SectionBlockComponent({ backgroundColor, items, size }) 
 
   return (
     <div
-      className="w-full min-h-full flex flex-col  py-10  px-56"
+      className="w-full min-h-full flex flex-col  py-10  px-32"
       style={{ width: size.width + 'vw', height: size.height + 'vh', backgroundColor }}
     >
       {items.map((block, index) => {
